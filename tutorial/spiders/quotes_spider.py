@@ -20,9 +20,9 @@ class QuotesSpider(scrapy.Spider):
 
 
 
-        for cn in response.css('head'):
+        for cn in response.css('div.container'):
             yield {
-                'ds': cn.xpath('title').getall(),
+                'ds': cn.css('div.author-description::text').getall(),
             }
 
 
